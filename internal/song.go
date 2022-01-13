@@ -13,7 +13,27 @@ type Song struct {
 	tag.Metadata
 	path string
 }
+const(
+	mp3 Decode = iota
+	wav 
+	flac
+	ogg
+)
 
+func (D Decode) String() string{
+	switch D{
+	case mp3:
+		return ".mp3"
+	case wav:
+		return ".wav"
+	case flac:
+		return ".flac"
+	case ogg:
+		return ".ogg"
+	default:
+		return ""
+	}
+}
 const defaultPath = "/Users/czy/Music/Music/Media.localized/Apple Music/Lube/Свои/"
 
 func Load(path string) []*Song {
